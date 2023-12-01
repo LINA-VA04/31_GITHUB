@@ -1,0 +1,108 @@
+import Foundation
+
+//2) Составить следующую программу. Создать массив курсов валют: доллар, сом, тенге, рубль, евро. Попросить пользователя ввести сумму и валюту. Посчитать по курсу введенные данные и вывести в консоль. Использовать switch.
+//
+//let changeRates: [String: Double] = ["usd": 1.0, "som": 84.5, "tenge": 429.0, "ruble": 73.0, "euro": 0.85]
+//
+//
+//print("Введите сумму:")
+//if let amountString = readLine(),let amount = Double(amountString) {
+//    print("Введите валюту (usd/som/tenge/ruble/euro):")
+//    
+//    
+//    if let currency = readLine() {
+//        
+//       var result: Double = 0.0
+//        switch currency {
+//        case "usd":
+//            result = amount * changeRates["usd"]!
+//        case "som":
+//            result = amount * changeRates["som"]!
+//        case "tenge":
+//            result = amount * changeRates["tenge"]!
+//        case "ruble":
+//            result = amount * changeRates["ruble"]!
+//        case "euro":
+//            result = amount * changeRates["euro"]!
+//        default:
+//            print("Неизвестная валюта")
+//            
+//        }
+//
+//        
+//        print("Результат: \(result) \(currency)")
+//    } else {
+//        print("Неизвестная валюта")
+//    }
+//} else {
+//    print("Некорректная сумма")
+//}
+
+
+
+//3) Создать массив товаров и массив цен с одинаковой размерностью. Сделать функционал добавление нового товара, также удаление товара по индексу. В самом конце распечатать чек в следующем виде:
+//------Магазин Geeks------
+//Наименование товара:       Цена:
+//1.Coca-Cola                           50c.
+//2.Sandwich                            75c.
+//3.Snikers                                60c.
+//---------------------------
+//Итого:                                    185c.
+//
+
+//
+//var arrProduct: [String] = []
+//var arrCost: [Int] = []
+//
+//func addNewProduct(name: String, cost: Int) {
+//    arrProduct.append(name)
+//    arrCost.append(cost)
+//}
+//
+//func removeProduct(index: Int) {
+//    arrProduct.remove(at: index)
+//    arrCost.remove(at: index)
+//}
+//
+//func getCheck() {
+//    var sum = 0
+//    print("------Магазсомн Geeks------")
+//    print("Наименование товара:       Цена:")
+//    for (index, i) in arrProduct.enumerated() {
+//        print("\(index + 1).\(i)                  \(arrCost[index])сом.")
+//        sum += arrCost[index]
+//    }
+//    print("---------------------------")
+//    print("Итого:                   \(sum)")
+//}
+//
+//var theEnd = true
+//while theEnd {
+//    print("Выберите операцию")
+//    print("1) Добавить товар в корзину")
+//    print("2) Удалить товар")
+//    print("3) Получить чек")
+//    
+//    let selected = Int(readLine()!)!
+//    switch selected {
+//    case 1:
+//        print("Введите название товара")
+//        let name = readLine() ?? "name"
+//        
+//        print("Введите цену товара")
+//        let cost = Int(readLine()!) ?? 0
+//        addNewProduct(name: name, cost: cost)
+//        break
+//    case 2:
+//        print("Введите номер товара")
+//        let nomer = Int(readLine()!) ?? 0
+//        removeProduct(index: nomer)
+//        break
+//    case 3:
+//        getCheck()
+//        theEnd = false
+//        break
+//    default :
+//        break
+//    }
+//}
