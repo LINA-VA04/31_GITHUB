@@ -1,0 +1,160 @@
+////
+////  main.swift
+////  lesson6
+////
+////  Created by A LINA on 17/11/23.
+////
+//
+//import Foundation
+//
+//var names:[String]=["Alina","Elina","Jasmina"]
+//for i in 0...names.count-1{
+//    //names[i]="\(i+1).\(names[i])"
+//}
+//
+//
+//for (index,value) in names.enumerated(){
+//    names[index]="\(index+1).\(names[index])"
+//}
+//
+//print(names)
+//
+//
+//var numbers:[Int]=[3,1,4,5,2]
+//for i in 0...numbers.count-1{
+//    numbers[i]=numbers[i]*numbers[i]
+//}
+//
+//for (index,value) in numbers.enumerated(){
+//    numbers[index]=numbers[index]*numbers[index]
+//}
+//print(numbers)
+//
+//
+//
+//var number = 5
+//while number>0{
+//    print(number)
+//    
+//    if number==2{
+//        break
+//    }
+//    number-=1
+//}
+//var isFinish=false
+//while isFinish==false{
+//    print("Write message")
+//    let message=readLine()
+//    if message=="end"{
+//        break
+//    }
+//}
+//
+//
+//var isFinish=false
+//
+//var messages:[String]=[]
+//while isFinish==false{
+//    print("Write message")
+//    let message=readLine()
+//    if message=="end"{
+////        isFinish=true
+//        break
+//    }
+//    messages.append(message!)
+//}
+//print(messages)
+//
+//
+//
+//print("Введите число:")
+//   let num  = readLine()
+//
+//
+//
+//var stickAmount=0
+//
+//for symbol in num!{
+//    switch symbol{
+////    case "0":
+////        stickAmount+=6
+//    case "1":
+//        stickAmount+=2
+//    case "2":
+//        stickAmount+=5
+//    case "3":
+//        stickAmount+=5
+//    case "4":
+//        stickAmount+=4
+//    case "5":
+//        stickAmount+=5
+////    case "6":
+////        stickAmount+=6
+//    case "7":
+//        stickAmount+=3
+//    case "8":
+//        stickAmount+=7
+////    case "9":
+////        stickAmount+=6
+//    default:
+//        stickAmount+=6
+//    }
+//}
+//
+//print(stickAmount)
+
+
+
+
+var heroHealth:[Int]=[300,250,250]
+var heroNames:[String]=["Sub Zero","Liu Kang","Johny Cage"]
+var heroDamage:[Int]=[40,50,40]
+
+var bossHealth=1000
+var bossName="Goru"
+var bossDamage=70
+
+
+var isgameFinished=false
+
+func heroHit(){
+    for i in 0...heroDamage.count-1{
+        bossHealth-=heroDamage[i]
+    }
+}
+func bossHit(){
+    for i in 0...heroHealth.count-1{
+        heroHealth[i]-=bossDamage
+    }
+}
+
+heroHit()
+bossHit()
+print(bossHealth)
+print(heroHealth)
+
+
+func printStatistics(){
+    print("Здоровье героев:")
+    for i in 0...heroNames.count-1{
+        print("\(heroNames[i]):\(heroHealth)")
+        print("-----------------------")
+    }
+}
+
+
+while isgameFinished==false{
+    heroHit()
+    bossHit()
+    printStatistics()
+    if (heroHealth[0]<0 && heroHealth[1]<=0 && heroHealth[2]<=0)
+    {
+        isgameFinished=true
+       print("\(bossName)  boss win!")
+}else if (bossHealth<=0){
+        isgameFinished=true
+    print("heroes win!")
+    }
+    
+}
+
