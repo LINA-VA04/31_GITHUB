@@ -1,0 +1,24 @@
+import Foundation
+
+var a: Int = 7
+var b: Int = 2
+
+var sum: Int = a + b
+//print(sum)
+//print(sum)
+print(sum)
+
+var diff: Int = a - b
+print(diff)
+
+var mult: Int = a * b
+print(mult)
+
+var div: Int = a / b
+print(div)
+
+
+
+
+
+
