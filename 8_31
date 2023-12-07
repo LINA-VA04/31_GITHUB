@@ -1,0 +1,16 @@
+func findLargestDigit(in number: Int) -> Int {
+    var largestDigit = 0
+    var num = number
+    
+    while num > 0 {
+        let digit = num % 10
+        largestDigit = max(largestDigit, digit)
+        num /= 10
+    }
+    
+    return largestDigit
+}
+
+let number = 123456789
+let largestDigit = findLargestDigit(in: number)
+print("The largest digit in \(number) is \(largestDigit)")
