@@ -1,0 +1,54 @@
+import Foundation
+
+func calculate() {
+    // Функция для выполнения простых математических операций
+
+    // Запрос ввода первого числа
+    print("Введите первое число:")
+    guard let input1 = readLine(), let num1 = Double(input1) else {
+        print("Ошибка: Введите корректное число.")
+        return
+    }
+
+    // Запрос ввода второго числа
+    print("Введите второе число:")
+    guard let input2 = readLine(), let num2 = Double(input2) else {
+        print("Ошибка: Введите корректное число.")
+        return
+    }
+
+    // Запрос ввода оператора
+    print("Выберите оператор (+, -, *, /):")
+    guard let operatorSymbol = readLine(), let selectedOperator = operatorSymbol.first else {
+        print("Ошибка: Введите оператор.")
+        return
+    }
+
+    // Выполнение операции в зависимости от выбранного оператора
+    var result: Double
+
+    switch selectedOperator {
+    case "+":
+        result = num1 + num2
+    case "-":
+        result = num1 - num2
+    case "*":
+        result = num1 * num2
+    case "/":
+        // Проверка деления на ноль
+        if num2 == 0 {
+            print("Ошибка: Деление на ноль.")
+            return
+        }
+        result = num1 / num2
+    default:
+        print("Ошибка: Некорректный оператор.")
+        return
+    }
+
+    // Вывод результата
+    print("Результат: \(result)")
+}
+
+// Вызов функции для выполнения калькулятора
+calculate()
