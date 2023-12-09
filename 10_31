@@ -1,0 +1,23 @@
+import Foundation
+
+// Запрос ввода радиуса круга
+print("Введите радиус круга:")
+if let radiusInput = readLine(), let radius = Double(radiusInput) {
+    
+    // Запрос ввода высоты цилиндра
+    print("Введите высоту цилиндра:")
+    if let heightInput = readLine(), let height = Double(heightInput) {
+        
+        // Вычисление объема цилиндра
+        let volume = Double.pi * pow(radius, 2) * height
+        
+        // Вывод результата
+        print("Объем цилиндра: \(volume)")
+        
+    } else {
+        print("Ошибка ввода высоты цилиндра.")
+    }
+    
+} else {
+    print("Ошибка ввода радиуса круга.")
+}
