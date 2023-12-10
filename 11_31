@@ -1,0 +1,26 @@
+func calculateAverageAndPrintGreaterNumbers(_ numbers: [Int]) {
+    // Проверка на случай пустого массива
+    guard !numbers.isEmpty else {
+        print("Массив пуст.")
+        return
+    }
+
+    // Вычисление среднего значения
+    let sum = numbers.reduce(0, +)
+    let average = Double(sum) / Double(numbers.count)
+    
+    print("Среднее значение: \(average)")
+
+    // Вывод чисел, которые больше среднего значения
+    let greaterNumbers = numbers.filter { $0 > Int(average) }
+    
+    if greaterNumbers.isEmpty {
+        print("Нет чисел, больших среднего значения.")
+    } else {
+        print("Числа больше среднего значения: \(greaterNumbers)")
+    }
+}
+
+// Пример использования
+let numbers = [12, 24, 8, 15, 21, 30, 18]
+calculateAverageAndPrintGreaterNumbers(numbers)
