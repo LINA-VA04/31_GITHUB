@@ -1,0 +1,57 @@
+// Шаг 1: Определение структуры Student
+struct Student {
+    var name: String
+    var age: Int
+    var averageGrade: Double
+}
+
+// Шаг 2: Создание массива студентов
+var students: [Student] = [
+    Student(name: "Иван", age: 20, averageGrade: 4.5),
+    Student(name: "Мария", age: 22, averageGrade: 3.8),
+    Student(name: "Алексей", age: 21, averageGrade: 4.0),
+    Student(name: "Екатерина", age: 23, averageGrade: 4.8),
+    Student(name: "Дмитрий", age: 19, averageGrade: 3.5)
+]
+
+// Шаг 3: Функция для вывода информации о студентах
+func printStudentInfo(students: [Student]) {
+    for student in students {
+        print("Имя: \(student.name), Возраст: \(student.age), Средний балл: \(student.averageGrade)")
+    }
+}
+
+// Шаг 4: Функция для нахождения студента с наивысшим средним баллом
+func highestAverageGradeStudent(students: [Student]) -> Student? {
+    return students.max { $0.averageGrade < $1.averageGrade }
+}
+
+// Шаг 5: Функция для удаления студентов с средним баллом менее 4.0
+func removeLowGradeStudents(inout students: [Student]) {
+    students = students.filter { $0.averageGrade >= 4.0 }
+}
+
+// Шаг 6: Функция для сортировки студентов по возрасту (по убыванию)
+func sortStudentsByAgeDescending(inout students: [Student]) {
+    students.sort { $0.age > $1.age }
+}
+
+// Вывод информации о студентах
+print("Информация о студентах:")
+printStudentInfo(students: students)
+
+// Поиск студента с наивысшим средним баллом
+if let highestGradeStudent = highestAverageGradeStudent(students: students) {
+    print("\nСтудент с наивысшим средним баллом:")
+    print("Имя: \(highestGradeStudent.name), Возраст: \(highestGradeStudent.age), Средний балл: \(highestGradeStudent.averageGrade)")
+}
+
+// Удаление студентов с низким средним баллом
+removeLowGradeStudents(&students)
+print("\nСтуденты после удаления тех, у кого средний балл менее 4.0:")
+printStudentInfo(students: students)
+
+// Сортировка студентов по возрасту и вывод отсортированного списка
+sortStudentsByAgeDescending(&students)
+print("\nСтуденты после сортировки по возрасту (по убыванию):")
+printStudentInfo(students: students)
