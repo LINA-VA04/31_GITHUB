@@ -1,0 +1,58 @@
+import Foundation
+
+// Creating an array with a specified size and default values
+var repeatingNumbers = Array(repeating: 0, count: 5)
+
+// Creating a 2D array
+var matrix: [[Int]] = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+// Accessing elements in a 2D array
+let element = matrix[1][2]
+
+// Iterating through a 2D array
+for row in matrix {
+    for number in row {
+        print(number, terminator: " ")
+    }
+    print()
+}
+
+// Enumerating elements and indices in an array
+for (index, number) in repeatingNumbers.enumerated() {
+    print("Element at index \(index) is \(number)")
+}
+
+// Filtering elements in an array
+let filteredNumbers = numbers.filter { $0 > 5 }
+
+// Mapping elements to a new array
+let squaredNumbers = numbers.map { $0 * $0 }
+
+// Reducing elements to a single value
+let sum = numbers.reduce(0, { $0 + $1 })
+
+// Checking if an element exists in an array
+let containsTen = numbers.contains(10)
+
+// Concatenating arrays
+let moreNumbers = [8, 9]
+let combinedArray = numbers + moreNumbers
+
+// Reversing an array
+let reversedArray = numbers.reversed()
+
+// Removing all elements from an array
+numbers.removeAll()
+
+// Working with sets (unordered collections of unique elements)
+var uniqueNumbers: Set<Int> = [1, 2, 3, 3, 4, 5]
+
+// Converting a set to an array
+let uniqueNumbersArray = Array(uniqueNumbers)
+
+// Checking if a set contains an element
+let containsThree = uniqueNumbers.contains(3)
