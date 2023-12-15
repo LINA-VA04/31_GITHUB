@@ -1,0 +1,22 @@
+func generateRandomPassword(length: Int) -> String {
+    let uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    let lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
+    let numbers = "0123456789"
+    let specialCharacters = "!@#$%^&*()-=_+[]{}|;:'\",.<>/?"
+    
+    let allCharacters = uppercaseLetters + lowercaseLetters + numbers + specialCharacters
+    
+    var password = ""
+    
+    for _ in 0..<length {
+        let randomIndex = Int(arc4random_uniform(UInt32(allCharacters.count)))
+        let randomCharacter = allCharacters[allCharacters.index(allCharacters.startIndex, offsetBy: randomIndex)]
+        password.append(randomCharacter)
+    }
+    
+    return password
+}
+
+let passwordLength = 12
+let generatedPassword = generateRandomPassword(length: passwordLength)
+print("Сгенерированный пароль: \(generatedPassword)")
