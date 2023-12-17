@@ -1,0 +1,21 @@
+func lengthOfLongestSubstring(_ s: String) -> Int {
+    var characterIndexMap: [Character: Int] = [:]
+    var maxLength = 0
+    var startIndex = 0
+
+    for (index, char) in s.enumerated() {
+        if let existingIndex = characterIndexMap[char], existingIndex >= startIndex {
+            startIndex = existingIndex + 1
+        }
+
+        characterIndexMap[char] = index
+        maxLength = max(maxLength, index - startIndex + 1)
+    }
+
+    return maxLength
+}
+
+// Test cases
+print(lengthOfLongestSubstring("abcabcbb"))  // Output: 3
+print(lengthOfLongestSubstring("bbbbb"))     // Output: 1
+print(lengthOfLongestSubstring("pwwkew"))    // Output: 3
