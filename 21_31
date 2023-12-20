@@ -1,0 +1,41 @@
+// Definition for a binary tree node
+class TreeNode {
+    var val: Int
+    var left: TreeNode?
+    var right: TreeNode?
+
+    init(_ val: Int) {
+        self.val = val
+        self.left = nil
+        self.right = nil
+    }
+}
+
+func isValidBST(_ root: TreeNode?) -> Bool {
+    return isValidBSTHelper(root, Int.min, Int.max)
+}
+
+func isValidBSTHelper(_ node: TreeNode?, _ lowerBound: Int, _ upperBound: Int) -> Bool {
+    guard let currentNode = node else {
+        // An empty tree is a valid BST
+        return true
+    }
+
+    if currentNode.val <= lowerBound || currentNode.val >= upperBound {
+        // The current node's value should be within the valid range
+        return false
+    }
+
+    // Check the left subtree with updated upper bound
+    // Check the right subtree with updated lower bound
+    return isValidBSTHelper(currentNode.left, lowerBound, currentNode.val) &&
+           isValidBSTHelper(currentNode.right, currentNode.val, upperBound)
+}
+
+// Example usage:
+let root = TreeNode(2)
+root.left = TreeNode(1)
+root.right = TreeNode(3)
+
+let isValid = isValidBST(root)
+print(isValid) // Output: true
