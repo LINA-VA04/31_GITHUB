@@ -1,0 +1,38 @@
+struct Stack<T> {
+    private var elements = [T]()
+
+    mutating func push(_ element: T) {
+        elements.append(element)
+    }
+
+    mutating func pop() -> T? {
+        return elements.popLast()
+    }
+
+    func peek() -> T? {
+        return elements.last
+    }
+
+    func isEmpty() -> Bool {
+        return elements.isEmpty
+    }
+
+    var count: Int {
+        return elements.count
+    }
+}
+
+// Example usage:
+var stack = Stack<Int>()
+
+stack.push(1)
+stack.push(2)
+stack.push(3)
+
+print("Stack elements: \(stack)")
+
+if let topElement = stack.pop() {
+    print("Popped element: \(topElement)")
+}
+
+print("Stack after pop: \(stack)")
