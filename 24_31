@@ -1,0 +1,48 @@
+class TreeNode {
+    var val: Int
+    var left: TreeNode?
+    var right: TreeNode?
+
+    init(_ val: Int) {
+        self.val = val
+        self.left = nil
+        self.right = nil
+    }
+}
+
+func isBalanced(_ root: TreeNode?) -> Bool {
+    return checkHeight(root) != -1
+}
+
+func checkHeight(_ node: TreeNode?) -> Int {
+    guard let currentNode = node else {
+        return 0
+    }
+
+    let leftHeight = checkHeight(currentNode.left)
+    if leftHeight == -1 {
+        return -1
+    }
+
+    let rightHeight = checkHeight(currentNode.right)
+    if rightHeight == -1 {
+        return -1
+    }
+
+    let heightDiff = abs(leftHeight - rightHeight)
+    if heightDiff > 1 {
+        return -1
+    }
+
+    return 1 + max(leftHeight, rightHeight)
+}
+
+// Пример использования:
+let root = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.right?.left = TreeNode(15)
+root.right?.right = TreeNode(7)
+
+let balanced = isBalanced(root)
+print("Дерево сбалансировано: \(balanced)")
